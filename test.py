@@ -26,8 +26,9 @@ def hello_world():
 def get_score():
     s = str(request.form['query_string'])
     res = train_model(s)
-    print(res)
-    return jsonify(res)
+    print("score: ", res)
+
+    return jsonify('score', res)
 
 if __name__ == '__main__':
     app.run(debug=True)
