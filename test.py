@@ -4,9 +4,11 @@ from TfIdf import train_model
 
 app = Flask(__name__)
 
-# @app.route('/')
-# def hello_world():
-#     return 'hello world'
+
+@app.route('/')
+def hello_world():
+    return 'hello world'
+
 
 # @app.route('/', methods=['POST','GET'])
 # def login():
@@ -19,10 +21,12 @@ app = Flask(__name__)
 #         print(request.form.get('nickname', default='little apple'))
 #         return 'fine'
 
-@app.route('/', methods=['GET'])
+
+@app.route('/', methods=['POST', 'GET'])
 def get_score():
-    s = request.form.get('query_string')
+    s = str(request.form['query_string'])
     res = train_model(s)
+    print(res)
     return jsonify(res)
 
 if __name__ == '__main__':
