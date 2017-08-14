@@ -49,4 +49,4 @@ def train_model(query_string):
             sum += item[1]
         res1 = sum / count
         res1 = math.sqrt(res1)
-        return '%.3f' % res1
+        return '%.2f' % res1
